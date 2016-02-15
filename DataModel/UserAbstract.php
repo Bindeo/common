@@ -2,9 +2,9 @@
 
 namespace Bindeo\DataModel;
 
-abstract class ClientAbstract extends DataModelAbstract implements LocatableInterface
+abstract class UserAbstract extends DataModelAbstract implements LocatableInterface
 {
-    protected $_idClient;
+    protected $_idUser;
     protected $_email;
     protected $_type;
     protected $_name;
@@ -24,19 +24,19 @@ abstract class ClientAbstract extends DataModelAbstract implements LocatableInte
     /**
      * @return mixed
      */
-    public function getIdClient()
+    public function getIdUser()
     {
-        return $this->_idClient;
+        return $this->_idUser;
     }
 
     /**
-     * @param mixed $idClient
+     * @param mixed $idUser
      *
      * @return $this
      */
-    public function setIdClient($idClient)
+    public function setIdUser($idUser)
     {
-        $this->_idClient = $idClient;
+        $this->_idUser = $idUser;
 
         return $this;
     }
