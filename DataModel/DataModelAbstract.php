@@ -32,7 +32,7 @@ abstract class DataModelAbstract
     {
         return "_" . preg_replace_callback('/_([a-z])/', function ($matches) {
             return strtoupper($matches[1]);
-        }, str_replace('fk_', '', strtolower($key)));
+        }, str_replace('fk_', '', $key));
     }
 
     /**
@@ -61,7 +61,7 @@ abstract class DataModelAbstract
      */
     public function __set($name, $value)
     {
-        $name = $this->_convertKey($name);
+        $name = $this->_convertKey(strtolower($name));
         if (property_exists($this, $name)) {
             $this->$name = $value;
         }
