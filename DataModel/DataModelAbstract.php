@@ -4,7 +4,6 @@ namespace Bindeo\DataModel;
 
 /**
  * Abstract class with common functionality for data models
- *
  * @package Bindeo\DataModel
  */
 abstract class DataModelAbstract
@@ -28,9 +27,9 @@ abstract class DataModelAbstract
      *
      * @return string
      */
-    protected function _convertKey($key)
+    protected function convertKey($key)
     {
-        return "_" . preg_replace_callback('/_([a-z])/', function ($matches) {
+        return preg_replace_callback('/_([a-z])/', function ($matches) {
             return strtoupper($matches[1]);
         }, str_replace('fk_', '', $key));
     }
@@ -45,7 +44,7 @@ abstract class DataModelAbstract
         if (is_array($array)) {
             foreach ($array as $key => $value) {
                 // Transform the key into the attribute format
-                $var = $this->_convertKey($key);
+                $var = $this->convertKey($key);
                 if (property_exists($this, $var)) {
                     $this->$var = $value;
                 }
@@ -61,7 +60,7 @@ abstract class DataModelAbstract
      */
     public function __set($name, $value)
     {
-        $name = $this->_convertKey(strtolower($name));
+        $name = $this->convertKey(strtolower($name));
         if (property_exists($this, $name)) {
             $this->$name = $value;
         }
@@ -78,7 +77,7 @@ abstract class DataModelAbstract
         if (is_array($array)) {
             foreach ($array as $key => $value) {
                 if ($value) {
-                    $props[str_replace('_', '', $key)] = $value;
+                    $props[$key] = $value;
                 }
             }
         }

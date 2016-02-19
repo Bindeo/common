@@ -10,7 +10,7 @@ abstract class OAuthProviderAbstract
     const INVALID_SIGNATURE = 'INVALID_SIGNATURE';
     const INVALID_AUTH_DATA = 'INVALID_AUTH_DATA';
 
-    protected $_oauthStorage;
+    protected $oauthStorage;
 
     /**
      * OAuthProviderAbstract constructor.
@@ -19,7 +19,7 @@ abstract class OAuthProviderAbstract
      */
     public function __construct(OAuthStorageInterface $oauthStorage)
     {
-        $this->_oauthStorage = $oauthStorage;
+        $this->oauthStorage = $oauthStorage;
     }
 
     /**

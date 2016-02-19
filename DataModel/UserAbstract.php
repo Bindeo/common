@@ -4,29 +4,29 @@ namespace Bindeo\DataModel;
 
 abstract class UserAbstract extends DataModelAbstract implements LocatableInterface
 {
-    protected $_idUser;
-    protected $_email;
-    protected $_type;
-    protected $_name;
-    protected $_surname;
-    protected $_confirmed;
-    protected $_lang;
-    protected $_storageLeft;
-    protected $_stampsLeft;
+    protected $idUser;
+    protected $email;
+    protected $type;
+    protected $name;
+    protected $surname;
+    protected $confirmed;
+    protected $lang;
+    protected $storageLeft;
+    protected $stampsLeft;
     // Optionals and temporary attributes
-    protected $_ip;
-    protected $_latitude;
-    protected $_longitude;
-    protected $_idGeonames;
-    protected $_password;
-    protected $_oldPassword;
+    protected $ip;
+    protected $latitude;
+    protected $longitude;
+    protected $idGeonames;
+    protected $password;
+    protected $oldPassword;
 
     /**
      * @return mixed
      */
     public function getIdUser()
     {
-        return $this->_idUser;
+        return $this->idUser;
     }
 
     /**
@@ -36,7 +36,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIdUser($idUser)
     {
-        $this->_idUser = $idUser;
+        $this->idUser = $idUser;
 
         return $this;
     }
@@ -46,7 +46,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getEmail()
     {
-        return $this->_email;
+        return $this->email;
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setEmail($email)
     {
-        $this->_email = $email;
+        $this->email = $email;
 
         return $this;
     }
@@ -66,7 +66,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -76,7 +76,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setType($type)
     {
-        $this->_type = $type;
+        $this->type = $type;
 
         return $this;
     }
@@ -86,7 +86,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setName($name)
     {
-        $this->_name = $name;
+        $this->name = $name;
 
         return $this;
     }
@@ -106,7 +106,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getSurname()
     {
-        return $this->_surname;
+        return $this->surname;
     }
 
     /**
@@ -116,7 +116,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setSurname($surname)
     {
-        $this->_surname = $surname;
+        $this->surname = $surname;
 
         return $this;
     }
@@ -126,7 +126,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getConfirmed()
     {
-        return $this->_confirmed;
+        return $this->confirmed;
     }
 
     /**
@@ -136,7 +136,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setConfirmed($confirmed)
     {
-        $this->_confirmed = $confirmed;
+        $this->confirmed = $confirmed;
 
         return $this;
     }
@@ -146,7 +146,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getLang()
     {
-        return $this->_lang;
+        return $this->lang;
     }
 
     /**
@@ -156,7 +156,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setLang($lang)
     {
-        $this->_lang = $lang;
+        $this->lang = $lang;
 
         return $this;
     }
@@ -166,7 +166,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getStorageLeft()
     {
-        return $this->_storageLeft;
+        return $this->storageLeft;
     }
 
     /**
@@ -176,7 +176,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setStorageLeft($storageLeft)
     {
-        $this->_storageLeft = $storageLeft;
+        $this->storageLeft = $storageLeft;
 
         return $this;
     }
@@ -186,7 +186,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getStampsLeft()
     {
-        return $this->_stampsLeft;
+        return $this->stampsLeft;
     }
 
     /**
@@ -196,7 +196,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setStampsLeft($stampsLeft)
     {
-        $this->_stampsLeft = $stampsLeft;
+        $this->stampsLeft = $stampsLeft;
 
         return $this;
     }
@@ -206,7 +206,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getIp()
     {
-        return $this->_ip;
+        return $this->ip;
     }
 
     /**
@@ -216,7 +216,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIp($ip)
     {
-        $this->_ip = $ip;
+        $this->ip = $ip;
 
         return $this;
     }
@@ -226,7 +226,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getLatitude()
     {
-        return $this->_latitude;
+        return $this->latitude;
     }
 
     /**
@@ -236,7 +236,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setLatitude($latitude)
     {
-        $this->_latitude = $latitude;
+        $this->latitude = $latitude;
 
         return $this;
     }
@@ -246,7 +246,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getLongitude()
     {
-        return $this->_longitude;
+        return $this->longitude;
     }
 
     /**
@@ -256,7 +256,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setLongitude($longitude)
     {
-        $this->_longitude = $longitude;
+        $this->longitude = $longitude;
 
         return $this;
     }
@@ -266,7 +266,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getIdGeonames()
     {
-        return $this->_idGeonames;
+        return $this->idGeonames;
     }
 
     /**
@@ -276,7 +276,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIdGeonames($idGeonames)
     {
-        $this->_idGeonames = $idGeonames;
+        $this->idGeonames = $idGeonames;
 
         return $this;
     }
@@ -286,7 +286,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getPassword()
     {
-        return $this->_password;
+        return $this->password;
     }
 
     /**
@@ -296,7 +296,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setPassword($password)
     {
-        $this->_password = $password;
+        $this->password = $password;
 
         return $this;
     }
@@ -306,7 +306,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getOldPassword()
     {
-        return $this->_oldPassword;
+        return $this->oldPassword;
     }
 
     /**
@@ -316,7 +316,7 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setOldPassword($oldPassword)
     {
-        $this->_oldPassword = $oldPassword;
+        $this->oldPassword = $oldPassword;
 
         return $this;
     }

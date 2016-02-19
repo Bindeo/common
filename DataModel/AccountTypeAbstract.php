@@ -4,18 +4,18 @@ namespace Bindeo\DataModel;
 
 abstract class AccountTypeAbstract extends DataModelAbstract
 {
-    protected $_idType;
-    protected $_type;
-    protected $_cost;
-    protected $_maxStorage;
-    protected $_maxStampsMonth;
+    protected $idType;
+    protected $type;
+    protected $cost;
+    protected $maxStorage;
+    protected $maxStampsMonth;
 
     /**
      * @return mixed
      */
     public function getIdType()
     {
-        return $this->_idType;
+        return $this->idType;
     }
 
     /**
@@ -25,7 +25,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function setIdType($idType)
     {
-        $this->_idType = $idType;
+        $this->idType = $idType;
 
         return $this;
     }
@@ -35,7 +35,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -45,7 +45,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function setType($type)
     {
-        $this->_type = $type;
+        $this->type = $type;
 
         return $this;
     }
@@ -55,7 +55,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function getCost()
     {
-        return $this->_cost;
+        return $this->cost;
     }
 
     /**
@@ -65,7 +65,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function setCost($cost)
     {
-        $this->_cost = $cost;
+        $this->cost = $cost;
 
         return $this;
     }
@@ -75,7 +75,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function getMaxStorage()
     {
-        return $this->_maxStorage;
+        return $this->maxStorage;
     }
 
     /**
@@ -85,7 +85,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function setMaxStorage($maxStorage)
     {
-        $this->_maxStorage = $maxStorage;
+        $this->maxStorage = $maxStorage;
 
         return $this;
     }
@@ -95,7 +95,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function getMaxStampsMonth()
     {
-        return $this->_maxStampsMonth;
+        return $this->maxStampsMonth;
     }
 
     /**
@@ -105,7 +105,7 @@ abstract class AccountTypeAbstract extends DataModelAbstract
      */
     public function setMaxStampsMonth($maxStampsMonth)
     {
-        $this->_maxStampsMonth = $maxStampsMonth;
+        $this->maxStampsMonth = $maxStampsMonth;
 
         return $this;
     }

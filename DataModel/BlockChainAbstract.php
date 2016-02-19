@@ -4,20 +4,20 @@ namespace Bindeo\DataModel;
 
 abstract class BlockChainAbstract extends DataModelAbstract
 {
-    protected $_transaction;
-    protected $_net;
-    protected $_idClient;
-    protected $_hash;
-    protected $_date;
-    protected $_type;
-    protected $_idElement;
+    protected $transaction;
+    protected $net;
+    protected $idClient;
+    protected $hash;
+    protected $date;
+    protected $type;
+    protected $idElement;
 
     /**
      * @return mixed
      */
     public function getTransaction()
     {
-        return $this->_transaction;
+        return $this->transaction;
     }
 
     /**
@@ -27,7 +27,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setTransaction($transaction)
     {
-        $this->_transaction = $transaction;
+        $this->transaction = $transaction;
 
         return $this;
     }
@@ -37,7 +37,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getNet()
     {
-        return $this->_net;
+        return $this->net;
     }
 
     /**
@@ -47,7 +47,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setNet($net)
     {
-        $this->_net = $net;
+        $this->net = $net;
 
         return $this;
     }
@@ -57,7 +57,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getIdClient()
     {
-        return $this->_idClient;
+        return $this->idClient;
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setIdClient($idClient)
     {
-        $this->_idClient = $idClient;
+        $this->idClient = $idClient;
 
         return $this;
     }
@@ -77,7 +77,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getHash()
     {
-        return $this->_hash;
+        return $this->hash;
     }
 
     /**
@@ -87,7 +87,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setHash($hash)
     {
-        $this->_hash = $hash;
+        $this->hash = $hash;
 
         return $this;
     }
@@ -97,7 +97,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getDate()
     {
-        return $this->_date;
+        return $this->date;
     }
 
     /**
@@ -107,7 +107,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setDate($date)
     {
-        $this->_date = $date;
+        $this->date = $date;
 
         return $this;
     }
@@ -117,7 +117,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -127,7 +127,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setType($type)
     {
-        $this->_type = $type;
+        $this->type = $type;
 
         return $this;
     }
@@ -137,7 +137,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function getIdElement()
     {
-        return $this->_idElement;
+        return $this->idElement;
     }
 
     /**
@@ -147,7 +147,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
      */
     public function setIdElement($idElement)
     {
-        $this->_idElement = $idElement;
+        $this->idElement = $idElement;
 
         return $this;
     }

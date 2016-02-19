@@ -4,29 +4,29 @@ namespace Bindeo\DataModel;
 
 abstract class FileAbstract extends DataModelAbstract implements LocatableInterface
 {
-    protected $_idFile;
-    protected $_idClient;
-    protected $_type;
-    protected $_name;
-    protected $_hash;
-    protected $_size;
-    protected $_date;
-    protected $_status;
+    protected $idFile;
+    protected $idClient;
+    protected $type;
+    protected $name;
+    protected $hash;
+    protected $size;
+    protected $date;
+    protected $status;
 
     // Optionals
-    protected $_transaction;
-    protected $_ip;
-    protected $_idGeonames;
-    protected $_latitude;
-    protected $_longitude;
-    protected $_path;
+    protected $transaction;
+    protected $ip;
+    protected $idGeonames;
+    protected $latitude;
+    protected $longitude;
+    protected $path;
 
     /**
      * @return mixed
      */
     public function getIdFile()
     {
-        return $this->_idFile;
+        return $this->idFile;
     }
 
     /**
@@ -36,7 +36,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIdFile($idFile)
     {
-        $this->_idFile = $idFile;
+        $this->idFile = $idFile;
 
         return $this;
     }
@@ -46,7 +46,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getIdClient()
     {
-        return $this->_idClient;
+        return $this->idClient;
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIdClient($idClient)
     {
-        $this->_idClient = $idClient;
+        $this->idClient = $idClient;
 
         return $this;
     }
@@ -66,7 +66,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getType()
     {
-        return $this->_type;
+        return $this->type;
     }
 
     /**
@@ -76,7 +76,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setType($type)
     {
-        $this->_type = $type;
+        $this->type = $type;
 
         return $this;
     }
@@ -86,7 +86,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getName()
     {
-        return $this->_name;
+        return $this->name;
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setName($name)
     {
-        $this->_name = $name;
+        $this->name = $name;
 
         return $this;
     }
@@ -108,7 +108,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getHash($bin = false)
     {
-        return $bin ? hex2bin($this->_hash) : $this->_hash;
+        return $bin ? hex2bin($this->hash) : $this->hash;
     }
 
     /**
@@ -118,7 +118,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setHash($hash)
     {
-        $this->_hash = $hash;
+        $this->hash = $hash;
 
         return $this;
     }
@@ -128,7 +128,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getSize()
     {
-        return $this->_size;
+        return $this->size;
     }
 
     /**
@@ -138,7 +138,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setSize($size)
     {
-        $this->_size = $size;
+        $this->size = $size;
 
         return $this;
     }
@@ -148,7 +148,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getDate()
     {
-        return $this->_date;
+        return $this->date;
     }
 
     /**
@@ -158,7 +158,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setDate($date)
     {
-        $this->_date = $date;
+        $this->date = $date;
 
         return $this;
     }
@@ -168,7 +168,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getStatus()
     {
-        return $this->_status;
+        return $this->status;
     }
 
     /**
@@ -178,7 +178,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setStatus($status)
     {
-        $this->_status = $status;
+        $this->status = $status;
 
         return $this;
     }
@@ -188,7 +188,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getTransaction()
     {
-        return $this->_transaction;
+        return $this->transaction;
     }
 
     /**
@@ -198,7 +198,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setTransaction($transaction)
     {
-        $this->_transaction = $transaction;
+        $this->transaction = $transaction;
 
         return $this;
     }
@@ -208,7 +208,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getIp()
     {
-        return $this->_ip;
+        return $this->ip;
     }
 
     /**
@@ -218,7 +218,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIp($ip)
     {
-        $this->_ip = $ip;
+        $this->ip = $ip;
 
         return $this;
     }
@@ -228,7 +228,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getIdGeonames()
     {
-        return $this->_idGeonames;
+        return $this->idGeonames;
     }
 
     /**
@@ -238,7 +238,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setIdGeonames($idGeonames)
     {
-        $this->_idGeonames = $idGeonames;
+        $this->idGeonames = $idGeonames;
 
         return $this;
     }
@@ -248,7 +248,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getLatitude()
     {
-        return $this->_latitude;
+        return $this->latitude;
     }
 
     /**
@@ -258,7 +258,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setLatitude($latitude)
     {
-        $this->_latitude = $latitude;
+        $this->latitude = $latitude;
 
         return $this;
     }
@@ -268,7 +268,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getLongitude()
     {
-        return $this->_longitude;
+        return $this->longitude;
     }
 
     /**
@@ -278,7 +278,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setLongitude($longitude)
     {
-        $this->_longitude = $longitude;
+        $this->longitude = $longitude;
 
         return $this;
     }
@@ -288,7 +288,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function getPath()
     {
-        return $this->_path;
+        return $this->path;
     }
 
     /**
@@ -298,7 +298,7 @@ abstract class FileAbstract extends DataModelAbstract implements LocatableInterf
      */
     public function setPath($path)
     {
-        $this->_path = $path;
+        $this->path = $path;
 
         return $this;
     }
