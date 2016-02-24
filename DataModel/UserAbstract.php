@@ -320,4 +320,13 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
 
         return $this;
     }
+
+    /**
+     * Return the full name of the user
+     * @return string
+     */
+    public function getFullname()
+    {
+        return trim($this->name . ' ' . $this->surname);
+    }
 }
