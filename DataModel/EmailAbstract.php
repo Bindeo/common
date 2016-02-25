@@ -2,39 +2,38 @@
 
 namespace Bindeo\DataModel;
 
-abstract class FileAbstract extends LocatableAbstract
+abstract class EmailAbstract extends LocatableAbstract
 {
-    protected $idFile;
+    protected $idEmail;
     protected $idUser;
-    protected $idType;
-    protected $idMedia;
-    protected $name;
+    protected $content;
+    protected $subject;
+    protected $toList;
+    protected $attachedList;
     protected $hash;
     protected $size;
     protected $date;
     protected $status;
 
     // Optionals
-    protected $description;
     protected $transaction;
-    protected $path;
 
     /**
      * @return mixed
      */
-    public function getIdFile()
+    public function getIdEmail()
     {
-        return $this->idFile;
+        return $this->idEmail;
     }
 
     /**
-     * @param mixed $idFile
+     * @param mixed $idEmail
      *
      * @return $this
      */
-    public function setIdFile($idFile)
+    public function setIdEmail($idEmail)
     {
-        $this->idFile = $idFile;
+        $this->idEmail = $idEmail;
 
         return $this;
     }
@@ -62,19 +61,19 @@ abstract class FileAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getIdType()
+    public function getContent()
     {
-        return $this->idType;
+        return $this->content;
     }
 
     /**
-     * @param mixed $idType
+     * @param mixed $content
      *
      * @return $this
      */
-    public function setIdType($idType)
+    public function setContent($content)
     {
-        $this->idType = $idType;
+        $this->content = $content;
 
         return $this;
     }
@@ -82,19 +81,39 @@ abstract class FileAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getIdMedia()
+    public function getSubject()
     {
-        return $this->idMedia;
+        return $this->subject;
     }
 
     /**
-     * @param mixed $idMedia
+     * @param mixed $subject
      *
      * @return $this
      */
-    public function setIdMedia($idMedia)
+    public function setSubject($subject)
     {
-        $this->idMedia = $idMedia;
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getToList()
+    {
+        return $this->toList;
+    }
+
+    /**
+     * @param array $toList
+     *
+     * @return $this
+     */
+    public function setToList(array $toList)
+    {
+        $this->toList = $toList;
 
         return $this;
     }
@@ -102,19 +121,19 @@ abstract class FileAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getName()
+    public function getAttachedList()
     {
-        return $this->name;
+        return $this->attachedList;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $attachedList
      *
      * @return $this
      */
-    public function setName($name)
+    public function setAttachedList($attachedList)
     {
-        $this->name = $name;
+        $this->attachedList = $attachedList;
 
         return $this;
     }
@@ -204,26 +223,6 @@ abstract class FileAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param mixed $description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTransaction()
     {
         return $this->transaction;
@@ -237,26 +236,6 @@ abstract class FileAbstract extends LocatableAbstract
     public function setTransaction($transaction)
     {
         $this->transaction = $transaction;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
-     * @param mixed $path
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
 
         return $this;
     }

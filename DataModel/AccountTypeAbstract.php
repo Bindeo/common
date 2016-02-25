@@ -5,8 +5,9 @@ namespace Bindeo\DataModel;
 abstract class AccountTypeAbstract extends DataModelAbstract
 {
     protected $idType;
-    protected $type;
+    protected $name;
     protected $cost;
+    protected $maxFilesize;
     protected $maxStorage;
     protected $maxStampsMonth;
 
@@ -33,19 +34,19 @@ abstract class AccountTypeAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * @param mixed $type
+     * @param mixed $name
      *
      * @return $this
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->type = $type;
+        $this->name = $name;
 
         return $this;
     }
@@ -66,6 +67,26 @@ abstract class AccountTypeAbstract extends DataModelAbstract
     public function setCost($cost)
     {
         $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxFilesize()
+    {
+        return $this->maxFilesize;
+    }
+
+    /**
+     * @param mixed $maxFilesize
+     *
+     * @return $this
+     */
+    public function setMaxFilesize($maxFilesize)
+    {
+        $this->maxFilesize = $maxFilesize;
 
         return $this;
     }

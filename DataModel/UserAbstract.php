@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class UserAbstract extends DataModelAbstract implements LocatableInterface
+abstract class UserAbstract extends LocatableAbstract
 {
     protected $idUser;
     protected $email;
@@ -14,10 +14,6 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
     protected $storageLeft;
     protected $stampsLeft;
     // Optionals and temporary attributes
-    protected $ip;
-    protected $latitude;
-    protected $longitude;
-    protected $idGeonames;
     protected $password;
     protected $oldPassword;
 
@@ -197,86 +193,6 @@ abstract class UserAbstract extends DataModelAbstract implements LocatableInterf
     public function setStampsLeft($stampsLeft)
     {
         $this->stampsLeft = $stampsLeft;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIp()
-    {
-        return $this->ip;
-    }
-
-    /**
-     * @param mixed $ip
-     *
-     * @return $this
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLatitude()
-    {
-        return $this->latitude;
-    }
-
-    /**
-     * @param mixed $latitude
-     *
-     * @return $this
-     */
-    public function setLatitude($latitude)
-    {
-        $this->latitude = $latitude;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-    /**
-     * @param mixed $longitude
-     *
-     * @return $this
-     */
-    public function setLongitude($longitude)
-    {
-        $this->longitude = $longitude;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdGeonames()
-    {
-        return $this->idGeonames;
-    }
-
-    /**
-     * @param mixed $idGeonames
-     *
-     * @return $this
-     */
-    public function setIdGeonames($idGeonames)
-    {
-        $this->idGeonames = $idGeonames;
 
         return $this;
     }
