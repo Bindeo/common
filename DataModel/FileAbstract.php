@@ -15,6 +15,7 @@ abstract class FileAbstract extends LocatableAbstract
     protected $status;
 
     // Optionals
+    protected $tag;
     protected $description;
     protected $transaction;
     protected $path;
@@ -197,6 +198,26 @@ abstract class FileAbstract extends LocatableAbstract
     public function setStatus($status)
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param mixed $tag
+     *
+     * @return $this
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
 
         return $this;
     }
