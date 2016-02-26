@@ -6,6 +6,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
 {
     protected $transaction;
     protected $net;
+    protected $confirmed;
     protected $idClient;
     protected $hash;
     protected $date;
@@ -48,6 +49,26 @@ abstract class BlockChainAbstract extends DataModelAbstract
     public function setNet($net)
     {
         $this->net = $net;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmed()
+    {
+        return $this->confirmed;
+    }
+
+    /**
+     * @param mixed $confirmed
+     *
+     * @return $this
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
 
         return $this;
     }

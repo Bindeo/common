@@ -18,6 +18,7 @@ abstract class FileAbstract extends LocatableAbstract
     protected $tag;
     protected $description;
     protected $transaction;
+    protected $confirmed;
     protected $path;
 
     /**
@@ -258,6 +259,26 @@ abstract class FileAbstract extends LocatableAbstract
     public function setTransaction($transaction)
     {
         $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmed()
+    {
+        return $this->confirmed;
+    }
+
+    /**
+     * @param mixed $confirmed
+     *
+     * @return $this
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
 
         return $this;
     }

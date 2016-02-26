@@ -17,6 +17,7 @@ abstract class EmailAbstract extends LocatableAbstract
 
     // Optionals
     protected $transaction;
+    protected $confirmed;
 
     /**
      * @return mixed
@@ -239,4 +240,25 @@ abstract class EmailAbstract extends LocatableAbstract
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmed()
+    {
+        return $this->confirmed;
+    }
+
+    /**
+     * @param mixed $confirmed
+     *
+     * @return $this
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
 }
