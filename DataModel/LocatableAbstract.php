@@ -6,7 +6,7 @@ namespace Bindeo\DataModel;
  * Abstract class with common functionality for locatable data models
  * @package Bindeo\DataModel
  */
-abstract class LocatableAbstract implements LocatableInterface
+abstract class LocatableAbstract extends DataModelAbstract implements LocatableInterface
 {
     protected $ip;
     protected $latitude;

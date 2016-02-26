@@ -8,7 +8,6 @@ abstract class UserAbstract extends LocatableAbstract
     protected $email;
     protected $type;
     protected $name;
-    protected $surname;
     protected $confirmed;
     protected $lang;
     protected $storageLeft;
@@ -93,26 +92,6 @@ abstract class UserAbstract extends LocatableAbstract
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @param mixed $surname
-     *
-     * @return $this
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
 
         return $this;
     }
@@ -235,14 +214,5 @@ abstract class UserAbstract extends LocatableAbstract
         $this->oldPassword = $oldPassword;
 
         return $this;
-    }
-
-    /**
-     * Return the full name of the user
-     * @return string
-     */
-    public function getFullname()
-    {
-        return trim($this->name . ' ' . $this->surname);
     }
 }
