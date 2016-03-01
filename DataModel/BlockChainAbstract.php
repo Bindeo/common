@@ -7,7 +7,8 @@ abstract class BlockChainAbstract extends DataModelAbstract
     protected $transaction;
     protected $net;
     protected $confirmed;
-    protected $idClient;
+    protected $idUser;
+    protected $idIdentity;
     protected $hash;
     protected $date;
     protected $type;
@@ -76,19 +77,39 @@ abstract class BlockChainAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
-    public function getIdClient()
+    public function getIdUser()
     {
-        return $this->idClient;
+        return $this->idUser;
     }
 
     /**
-     * @param mixed $idClient
+     * @param mixed $idUser
      *
      * @return $this
      */
-    public function setIdClient($idClient)
+    public function setIdUser($idUser)
     {
-        $this->idClient = $idClient;
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdIdentity()
+    {
+        return $this->idIdentity;
+    }
+
+    /**
+     * @param mixed $idIdentity
+     *
+     * @return $this
+     */
+    public function setIdIdentity($idIdentity)
+    {
+        $this->idIdentity = $idIdentity;
 
         return $this;
     }

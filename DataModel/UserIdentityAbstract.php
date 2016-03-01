@@ -193,4 +193,13 @@ abstract class UserIdentityAbstract extends DataModelAbstract
 
         return $this;
     }
+
+    /**
+     * Get identity full name
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->name . ' (' . $this->value . ')';
+    }
 }
