@@ -76,7 +76,7 @@ abstract class DataModelAbstract
         $props = [];
         if (is_array($array)) {
             foreach ($array as $key => $value) {
-                if ($value) {
+                if ($value and !is_object($value)) {
                     $props[$key] = $value;
                 }
             }

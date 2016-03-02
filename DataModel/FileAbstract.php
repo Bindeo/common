@@ -9,6 +9,8 @@ abstract class FileAbstract extends LocatableAbstract
     protected $idType;
     protected $idMedia;
     protected $name;
+    protected $fileName;
+    protected $fileOrigName;
     protected $hash;
     protected $size;
     protected $date;
@@ -117,6 +119,46 @@ abstract class FileAbstract extends LocatableAbstract
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileName()
+    {
+        return $this->fileName;
+    }
+
+    /**
+     * @param mixed $fileName
+     *
+     * @return FileAbstract
+     */
+    public function setFileName($fileName)
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileOrigName()
+    {
+        return $this->fileOrigName;
+    }
+
+    /**
+     * @param mixed $fileOrigName
+     *
+     * @return FileAbstract
+     */
+    public function setFileOrigName($fileOrigName)
+    {
+        $this->fileOrigName = $fileOrigName;
 
         return $this;
     }
