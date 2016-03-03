@@ -10,6 +10,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
     protected $idUser;
     protected $idIdentity;
     protected $hash;
+    protected $jsonData;
     protected $date;
     protected $type;
     protected $idElement;
@@ -130,6 +131,26 @@ abstract class BlockChainAbstract extends DataModelAbstract
     public function setHash($hash)
     {
         $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJsonData()
+    {
+        return $this->jsonData;
+    }
+
+    /**
+     * @param mixed $jsonData
+     *
+     * @return $this
+     */
+    public function setJsonData($jsonData)
+    {
+        $this->jsonData = $jsonData;
 
         return $this;
     }
