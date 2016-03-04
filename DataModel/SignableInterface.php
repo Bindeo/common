@@ -10,11 +10,13 @@ interface SignableInterface
 {
     public function getHash();
 
-    public function getName();
+    public function getFileOrigName();
 
     public function getSize();
 
     public function getType();
+
+    public function getIdElement();
 
     public function getIdUser();
 }

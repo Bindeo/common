@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class FileAbstract extends LocatableAbstract implements SignableInterface
+abstract class FileAbstract extends LocatableAbstract
 {
     protected $idFile;
     protected $idUser;
@@ -343,16 +343,5 @@ abstract class FileAbstract extends LocatableAbstract implements SignableInterfa
         $this->path = $path;
 
         return $this;
-    }
-
-
-    // ADITIONAL METHODS
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return 'F';
     }
 }

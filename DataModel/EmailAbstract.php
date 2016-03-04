@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class EmailAbstract extends LocatableAbstract implements SignableInterface
+abstract class EmailAbstract extends LocatableAbstract
 {
     protected $idEmail;
     protected $idUser;
@@ -259,24 +259,5 @@ abstract class EmailAbstract extends LocatableAbstract implements SignableInterf
         $this->confirmed = $confirmed;
 
         return $this;
-    }
-
-
-    // ADITIONAL METHODS
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return 'E';
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->subject;
     }
 }
