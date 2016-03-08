@@ -29,7 +29,7 @@ class FilesFilter extends FilterAbstract
     const ORDER_SIZE_ASC  = 5;
     const ORDER_SIZE_DESC = 6;
 
-    public function __construct($request)
+    public function __construct($request = [])
     {
         parent::__construct($request);
 

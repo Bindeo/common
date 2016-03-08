@@ -14,6 +14,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
     protected $date;
     protected $type;
     protected $idElement;
+    protected $statusElement;
 
     /**
      * @return mixed
@@ -211,6 +212,26 @@ abstract class BlockChainAbstract extends DataModelAbstract
     public function setIdElement($idElement)
     {
         $this->idElement = $idElement;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusElement()
+    {
+        return $this->statusElement;
+    }
+
+    /**
+     * @param mixed $statusElement
+     *
+     * @return $this
+     */
+    public function setStatusElement($statusElement)
+    {
+        $this->statusElement = $statusElement;
 
         return $this;
     }

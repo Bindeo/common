@@ -9,13 +9,19 @@ abstract class FilterAbstract
 
     public function __construct($request)
     {
-        if (isset($request['page'])) {
-            $this->page = $request['page'];
-        }
-        if (isset($request['numRows'])) {
-            $this->numRows = $request['numRows'];
-        } else {
-            $this->numRows = 20;
+        $this->page = isset($request['page']) ? (int)$request['page'] : 1;
+        $this->numRows = isset($request['numRows']) ? (int)$request['numRows'] : 20;
+    }
+
+    /**
+     * Clean dangerous attributes
+     */
+    public function clean()
+    {
+        foreach (get_object_vars($this) as $prop => $value) {
+            if (is_string($value)) {
+                $this->$prop = trim(strip_tags($value));
+            }
         }
     }
 
