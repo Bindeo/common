@@ -115,7 +115,7 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     }
 
     /**
-     * @return array
+     * @return mixed
      */
     public function getValue()
     {
@@ -123,11 +123,11 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     }
 
     /**
-     * @param array $value
+     * @param mixed $value
      *
      * @return $this
      */
-    public function setValue(array $value)
+    public function setValue($value)
     {
         $this->value = $value;
 
