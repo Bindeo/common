@@ -8,8 +8,11 @@ namespace Bindeo\DataModel;
  */
 abstract class DataModelAbstract
 {
+    const DATE_MASK = 'Y-m-d H:i:s';
+
     /**
      * Clean dangerous attributes
+     * @return $this
      */
     public function clean()
     {
@@ -18,6 +21,8 @@ abstract class DataModelAbstract
                 $this->$prop = trim(strip_tags($value));
             }
         }
+
+        return $this;
     }
 
     /**
@@ -35,7 +40,7 @@ abstract class DataModelAbstract
     }
 
     /**
-     * Optionally autopopulate object attributes with received data
+     * Optionally auto-populate object attributes with received data
      *
      * @param array $array [optional] Model attributes
      */
@@ -44,10 +49,7 @@ abstract class DataModelAbstract
         if (is_array($array)) {
             foreach ($array as $key => $value) {
                 // Transform the key into the attribute format
-                $var = $this->convertKey($key);
-                if (property_exists($this, $var)) {
-                    $this->$var = $value;
-                }
+                $this->__set($key, $value);
             }
         }
     }
@@ -61,7 +63,10 @@ abstract class DataModelAbstract
     public function __set($name, $value)
     {
         $name = $this->convertKey(strtolower($name));
-        if (property_exists($this, $name)) {
+        $method = 'set' . ucfirst($name);
+        if (method_exists($this, $method)) {
+            $this->$method($value);
+        } elseif (property_exists($this, $name)) {
             $this->$name = $value;
         }
     }
@@ -76,8 +81,10 @@ abstract class DataModelAbstract
         $props = [];
         if (is_array($array)) {
             foreach ($array as $key => $value) {
-                if ($value and !is_object($value)) {
+                if ($value and !is_object($value) and !is_array($value)) {
                     $props[$key] = $value;
+                } elseif ($value instanceof \DateTime) {
+                    $props[$key] = $value->format(self::DATE_MASK);
                 }
             }
         }

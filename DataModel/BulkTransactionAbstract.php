@@ -7,12 +7,14 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $idBulkTransaction;
     protected $idUser;
     protected $numFiles;
+    protected $structure;
     protected $hash;
     protected $status;
 
     // Optionals
     protected $transaction;
     protected $confirmed;
+    protected $files;
 
     /**
      * @return mixed
@@ -70,6 +72,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setNumFiles($numFiles)
     {
         $this->numFiles = $numFiles;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStructure()
+    {
+        return $this->structure;
+    }
+
+    /**
+     * @param mixed $structure
+     *
+     * @return $this
+     */
+    public function setStructure($structure)
+    {
+        $this->structure = $structure;
 
         return $this;
     }
@@ -150,6 +172,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setConfirmed($confirmed)
     {
         $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param array $files
+     *
+     * @return $this
+     */
+    public function setFiles($files)
+    {
+        $this->files = $files;
 
         return $this;
     }

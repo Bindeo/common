@@ -2,28 +2,33 @@
 
 namespace Bindeo\DataModel;
 
-abstract class BulkFileAbstract extends DataModelAbstract
+abstract class BulkFileAbstract extends DataModelAbstract implements StorableFileInterface
 {
     protected $idBulkFile;
     protected $idBulk;
     protected $uniqueId;
     protected $idUser;
+    protected $fileName;
     protected $fileOrigName;
     protected $fileType;
     protected $idSign;
     protected $fullName;
+    /**
+     * @var \DateTime
+     */
     protected $fileDate;
     protected $idContent;
     protected $qualification;
     protected $hash;
     protected $size;
+    /**
+     * @var \DateTime
+     */
     protected $ctrlDate;
     protected $status;
 
     // Optionals
     protected $ip;
-    protected $transaction;
-    protected $confirmed;
     protected $path;
 
     /**
@@ -109,6 +114,26 @@ abstract class BulkFileAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
+    public function getFileName()
+    {
+        return $this->fileName;
+    }
+
+    /**
+     * @param mixed $fileName
+     *
+     * @return $this
+     */
+    public function setFileName($fileName)
+    {
+        $this->fileName = $fileName;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getFileOrigName()
     {
         return $this->fileOrigName;
@@ -187,7 +212,7 @@ abstract class BulkFileAbstract extends DataModelAbstract
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getFileDate()
     {
@@ -195,13 +220,32 @@ abstract class BulkFileAbstract extends DataModelAbstract
     }
 
     /**
-     * @param mixed $fileDate
+     * @param string $mask
+     *
+     * @return mixed
+     */
+    public function getFormattedFileDate($mask = self::DATE_MASK)
+    {
+        if ($this->fileDate) {
+            return $this->fileDate->format($mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $fileDate
+     * @param string $mask
      *
      * @return $this
      */
-    public function setFileDate($fileDate)
+    public function setFileDate($fileDate, $mask = self::DATE_MASK)
     {
-        $this->fileDate = $fileDate;
+        if ($fileDate instanceof \DateTime) {
+            $this->fileDate = $fileDate;
+        } else {
+            $this->fileDate = \DateTime::createFromFormat($mask, $fileDate);
+        }
 
         return $this;
     }
@@ -295,13 +339,32 @@ abstract class BulkFileAbstract extends DataModelAbstract
     }
 
     /**
-     * @param mixed $ctrlDate
+     * @param string $mask
+     *
+     * @return mixed
+     */
+    public function getFormattedCtrlDate($mask = self::DATE_MASK)
+    {
+        if ($this->ctrlDate) {
+            return $this->ctrlDate->format($mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $ctrlDate
+     * @param string $mask
      *
      * @return $this
      */
-    public function setCtrlDate($ctrlDate)
+    public function setCtrlDate($ctrlDate, $mask = self::DATE_MASK)
     {
-        $this->ctrlDate = $ctrlDate;
+        if ($ctrlDate instanceof \DateTime) {
+            $this->ctrlDate = $ctrlDate;
+        } else {
+            $this->ctrlDate = \DateTime::createFromFormat($mask, $ctrlDate);
+        }
 
         return $this;
     }
@@ -349,46 +412,6 @@ abstract class BulkFileAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
-    public function getTransaction()
-    {
-        return $this->transaction;
-    }
-
-    /**
-     * @param mixed $transaction
-     *
-     * @return $this
-     */
-    public function setTransaction($transaction)
-    {
-        $this->transaction = $transaction;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConfirmed()
-    {
-        return $this->confirmed;
-    }
-
-    /**
-     * @param mixed $confirmed
-     *
-     * @return $this
-     */
-    public function setConfirmed($confirmed)
-    {
-        $this->confirmed = $confirmed;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPath()
     {
         return $this->path;
@@ -404,5 +427,10 @@ abstract class BulkFileAbstract extends DataModelAbstract
         $this->path = $path;
 
         return $this;
+    }
+
+    public function getStorageType()
+    {
+        return 'bulk';
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class FileAbstract extends LocatableAbstract
+abstract class FileAbstract extends LocatableAbstract implements StorableFileInterface
 {
     protected $idFile;
     protected $idUser;
@@ -343,5 +343,10 @@ abstract class FileAbstract extends LocatableAbstract
         $this->path = $path;
 
         return $this;
+    }
+
+    public function getStorageType()
+    {
+        return 'base';
     }
 }
