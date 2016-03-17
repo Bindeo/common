@@ -30,6 +30,12 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
     // Optionals
     protected $ip;
     protected $path;
+    protected $transaction;
+
+    public function getStorageType()
+    {
+        return 'bulk';
+    }
 
     /**
      * @return mixed
@@ -343,7 +349,7 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
      *
      * @return mixed
      */
-    public function getFormattedCtrlDate($mask = self::DATE_MASK)
+    public function getFormattedCtrlDate($mask = self::DATETIME_MASK)
     {
         if ($this->ctrlDate) {
             return $this->ctrlDate->format($mask);
@@ -358,7 +364,7 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
      *
      * @return $this
      */
-    public function setCtrlDate($ctrlDate, $mask = self::DATE_MASK)
+    public function setCtrlDate($ctrlDate, $mask = self::DATETIME_MASK)
     {
         if ($ctrlDate instanceof \DateTime) {
             $this->ctrlDate = $ctrlDate;
@@ -429,8 +435,23 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
         return $this;
     }
 
-    public function getStorageType()
+    /**
+     * @return mixed
+     */
+    public function getTransaction()
     {
-        return 'bulk';
+        return $this->transaction;
+    }
+
+    /**
+     * @param mixed $transaction
+     *
+     * @return $this
+     */
+    public function setTransaction($transaction)
+    {
+        $this->transaction = $transaction;
+
+        return $this;
     }
 }

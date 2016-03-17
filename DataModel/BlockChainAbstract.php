@@ -11,10 +11,21 @@ abstract class BlockChainAbstract extends DataModelAbstract
     protected $idIdentity;
     protected $hash;
     protected $jsonData;
-    protected $date;
+    /**
+     * @var \DateTime
+     */
+    protected $ctrlDate;
     protected $type;
     protected $idElement;
     protected $statusElement;
+
+    // optional
+    /**
+     * @var \DateTime
+     */
+    protected $bcDate;
+    protected $bcBlock;
+    protected $bcSigner;
 
     /**
      * @return mixed
@@ -157,21 +168,40 @@ abstract class BlockChainAbstract extends DataModelAbstract
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getDate()
+    public function getCtrlDate()
     {
-        return $this->date;
+        return $this->ctrlDate;
     }
 
     /**
-     * @param mixed $date
+     * @param string $mask
+     *
+     * @return mixed
+     */
+    public function getFormattedCtrlDate($mask = self::DATETIME_MASK)
+    {
+        if ($this->ctrlDate) {
+            return $this->ctrlDate->format($mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $date
+     * @param string $mask
      *
      * @return $this
      */
-    public function setDate($date)
+    public function setCtrlDate($date, $mask = self::DATETIME_MASK)
     {
-        $this->date = $date;
+        if ($date instanceof \DateTime) {
+            $this->ctrlDate = $date;
+        } else {
+            $this->ctrlDate = \DateTime::createFromFormat($mask, $date);
+        }
 
         return $this;
     }
@@ -232,6 +262,85 @@ abstract class BlockChainAbstract extends DataModelAbstract
     public function setStatusElement($statusElement)
     {
         $this->statusElement = $statusElement;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getBcDate()
+    {
+        return $this->bcDate;
+    }
+
+    /**
+     * @param string $mask
+     *
+     * @return string
+     */
+    public function getFormattedBcDate($mask = self::DATETIME_MASK)
+    {
+        if ($this->bcDate) {
+            return $this->bcDate->format($mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $bcDate
+     * @param string $mask
+     *
+     * @return $this
+     */
+    public function setBcDate($bcDate, $mask = self::DATETIME_MASK)
+    {
+        if ($bcDate instanceof \DateTime) {
+            $this->bcDate = $bcDate;
+        } else {
+            $this->bcDate = \DateTime::createFromFormat($mask, $bcDate);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBcBlock()
+    {
+        return $this->bcBlock;
+    }
+
+    /**
+     * @param mixed $bcBlock
+     *
+     * @return $this
+     */
+    public function setBcBlock($bcBlock)
+    {
+        $this->bcBlock = $bcBlock;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBcSigner()
+    {
+        return $this->bcSigner;
+    }
+
+    /**
+     * @param mixed $bcSigner
+     *
+     * @return $this
+     */
+    public function setBcSigner($bcSigner)
+    {
+        $this->bcSigner = $bcSigner;
 
         return $this;
     }

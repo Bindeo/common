@@ -8,7 +8,8 @@ namespace Bindeo\DataModel;
  */
 abstract class DataModelAbstract
 {
-    const DATE_MASK = 'Y-m-d H:i:s';
+    const DATETIME_MASK = 'Y-m-d H:i:s';
+    const DATE_MASK     = 'Y-m-d';
 
     /**
      * Clean dangerous attributes
@@ -64,6 +65,7 @@ abstract class DataModelAbstract
     {
         $name = $this->convertKey(strtolower($name));
         $method = 'set' . ucfirst($name);
+        // If set method exists we choose it in first place
         if (method_exists($this, $method)) {
             $this->$method($value);
         } elseif (property_exists($this, $name)) {
@@ -84,7 +86,10 @@ abstract class DataModelAbstract
                 if ($value and !is_object($value) and !is_array($value)) {
                     $props[$key] = $value;
                 } elseif ($value instanceof \DateTime) {
-                    $props[$key] = $value->format(self::DATE_MASK);
+                    // If value is a DateTime instance and get method exists we choose it in first place
+                    $method = 'getFormatted' . ucfirst($key);
+                    $props[$key] = method_exists($this, $method) ? $this->$method()
+                        : $value->format(self::DATETIME_MASK);
                 }
             }
         }
