@@ -5,14 +5,21 @@ namespace Bindeo\OAuth2;
 interface OAuthStorageInterface
 {
     /**
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $authCode
+     *
+     * @return mixed
+     */
+    public function authorize($clientId = null, $clientSecret = null, $authCode = null);
+
+    /**
      * @param string $type
      * @param string $oauthToken
-     * @param int    $clientId
-     * @param string $clientSecret
      *
      * @return Object
      */
-    public function getOAuth($type, $oauthToken = null, $clientId = null, $clientSecret = null);
+    public function getOAuth($type, $oauthToken = null);
 
     /**
      * @param $nonce

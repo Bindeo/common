@@ -28,7 +28,8 @@ class ApiConnection
         if ($this->curl->httpStatusCode == 204) {
             return $this->app == 'front' ? new \AppBundle\Entity\ResultSet() : new \PublicApi\Entity\ResultSet();
         } else {
-            return $this->app == 'front' ? new \AppBundle\Entity\ResultSet($res) : new \PublicApi\Entity\ResultSet($res);
+            return $this->app == 'front' ? new \AppBundle\Entity\ResultSet($res)
+                : new \PublicApi\Entity\ResultSet($res);
         }
     }
 
@@ -40,6 +41,7 @@ class ApiConnection
         $this->curl->setHeader('Authorization', 'Bearer ' . $token);
         // Private api routes
         $this->routes = [
+            'oauth_clients'         => '/oauth/clients',
             'general_account_types' => '/general/account-types',
             'general_file_types'    => '/general/file-types',
             'general_media_types'   => '/general/media-types',
