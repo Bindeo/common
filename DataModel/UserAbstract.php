@@ -215,4 +215,20 @@ abstract class UserAbstract extends LocatableAbstract
 
         return $this;
     }
+
+    // AUX METHODS
+    /**
+     * Clean dangerous attributes
+     * @return $this
+     */
+    public function clean()
+    {
+        parent::clean();
+
+        if ($this->email) {
+            mb_strtolower($this->email);
+        }
+
+        return $this;
+    }
 }
