@@ -8,6 +8,8 @@ abstract class OAuthClientAbstract extends DataModelAbstract
     protected $name;
     protected $secret;
     protected $role;
+    protected $allowedIps;
+
     /**
      * @var \DateTime
      */
@@ -128,6 +130,26 @@ abstract class OAuthClientAbstract extends DataModelAbstract
         } else {
             $this->ctrlDate = \DateTime::createFromFormat($mask, $ctrlDate);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowedIps()
+    {
+        return $this->allowedIps;
+    }
+
+    /**
+     * @param mixed $allowedIps
+     *
+     * @return $this
+     */
+    public function setAllowedIps($allowedIps)
+    {
+        $this->allowedIps = $allowedIps;
 
         return $this;
     }
