@@ -41,6 +41,9 @@ abstract class ClientResultSetAbstract extends ResultSetAbstract
                     $this->numPages = 0;
                 }
             }
+        } elseif (isset($data->array)) {
+            $this->numRows = 1;
+            $this->rows[0] = (array)$data->array;
         } elseif (isset($data->error)) {
             $this->error = (array)$data->error;
         }
