@@ -23,4 +23,7 @@ class Exceptions
     const FULL_SPACE      = 'Storage space full'; // 403
     const DUPLICATED_FILE = 'File already uploaded by the user'; // 409
     const CANNOT_MOVE     = 'Cannot move file'; // 503
+
+    // Bulk stuff
+    const ALREADY_CLOSED = 'Collection is already closed'; // 409
 }

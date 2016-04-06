@@ -46,7 +46,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getIdClient()
     {
         return $this->idUser;
     }

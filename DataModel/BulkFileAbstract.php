@@ -7,7 +7,8 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
     protected $idBulkFile;
     protected $idBulk;
     protected $uniqueId;
-    protected $idUser;
+    protected $clientType;
+    protected $idClient;
     protected $fileName;
     protected $fileOrigName;
     protected $fileType;
@@ -100,19 +101,39 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getClientType()
     {
-        return $this->idUser;
+        return $this->clientType;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $clientType
      *
      * @return $this
      */
-    public function setIdUser($idUser)
+    public function setClientType($clientType)
     {
-        $this->idUser = $idUser;
+        $this->clientType = $clientType;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * @param mixed $idClient
+     *
+     * @return $this
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
 
         return $this;
     }

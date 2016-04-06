@@ -5,8 +5,13 @@ namespace Bindeo\DataModel;
 abstract class BulkTransactionAbstract extends LocatableAbstract
 {
     protected $idBulkTransaction;
-    protected $idUser;
-    protected $numFiles;
+    protected $externalId;
+    protected $type;
+    protected $elementsType;
+    protected $clientType;
+    protected $idClient;
+    protected $closed;
+    protected $numItems;
     protected $structure;
     protected $hash;
     protected $status;
@@ -15,6 +20,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $transaction;
     protected $confirmed;
     protected $files;
+    protected $events;
 
     /**
      * @return mixed
@@ -39,19 +45,19 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getExternalId()
     {
-        return $this->idUser;
+        return $this->externalId;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $externalId
      *
      * @return $this
      */
-    public function setIdUser($idUser)
+    public function setExternalId($externalId)
     {
-        $this->idUser = $idUser;
+        $this->externalId = $externalId;
 
         return $this;
     }
@@ -59,19 +65,19 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getNumFiles()
+    public function getType()
     {
-        return $this->numFiles;
+        return $this->type;
     }
 
     /**
-     * @param mixed $numFiles
+     * @param mixed $type
      *
      * @return $this
      */
-    public function setNumFiles($numFiles)
+    public function setType($type)
     {
-        $this->numFiles = $numFiles;
+        $this->type = $type;
 
         return $this;
     }
@@ -79,9 +85,125 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getStructure()
+    public function getElementsType()
     {
-        return $this->structure;
+        return $this->elementsType;
+    }
+
+    /**
+     * @param mixed $elementsType
+     *
+     * @return $this
+     */
+    public function setElementsType($elementsType)
+    {
+        $this->elementsType = $elementsType;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientType()
+    {
+        return $this->clientType;
+    }
+
+    /**
+     * @param mixed $clientType
+     *
+     * @return $this
+     */
+    public function setClientType($clientType)
+    {
+        $this->clientType = $clientType;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * @param mixed $idClient
+     *
+     * @return $this
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClosed()
+    {
+        return $this->closed;
+    }
+
+    /**
+     * @param mixed $closed
+     *
+     * @return $this
+     */
+    public function setClosed($closed)
+    {
+        $this->closed = $closed;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumItems()
+    {
+        return $this->numItems;
+    }
+
+    /**
+     * @param mixed $numItems
+     *
+     * @return $this
+     */
+    public function setNumItems($numItems)
+    {
+        $this->numItems = $numItems;
+
+        return $this;
+    }
+
+    /**
+     * Increment num items
+     *
+     * @param int $num [optional]
+     *
+     * @return $this
+     */
+    public function incNumItems($num = 1)
+    {
+        $this->numItems = ($this->numItems ? $this->numItems : 0) + $num;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $decoded[optional]
+     *
+     * @return mixed
+     */
+    public function getStructure($decoded = false)
+    {
+        return ($this->structure and $decoded) ? json_decode($this->structure, true) : $this->structure;
     }
 
     /**
@@ -192,6 +314,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setFiles($files)
     {
         $this->files = $files;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * @param array $events
+     *
+     * @return $this
+     */
+    public function setEvents($events)
+    {
+        $this->events = $events;
 
         return $this;
     }
