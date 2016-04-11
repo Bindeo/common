@@ -25,5 +25,5 @@ class Exceptions
     const CANNOT_MOVE     = 'Cannot move file'; // 503
 
     // Bulk stuff
-    const ALREADY_CLOSED = 'Collection is already closed'; // 409
+    const ALREADY_CLOSED = 'Collection is already closed or deleted'; // 409
 }
