@@ -83,7 +83,7 @@ abstract class DataModelAbstract
         $props = [];
         if (is_array($array)) {
             foreach ($array as $key => $value) {
-                if ($value and !is_object($value) and !is_array($value)) {
+                if ($value != null and !is_object($value) and !is_array($value)) {
                     $props[$key] = $value;
                 } elseif ($value instanceof \DateTime) {
                     // If value is a DateTime instance and get method exists we choose it in first place

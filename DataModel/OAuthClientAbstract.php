@@ -9,6 +9,7 @@ abstract class OAuthClientAbstract extends DataModelAbstract
     protected $secret;
     protected $role;
     protected $allowedIps;
+    protected $blockchainAccounts;
 
     /**
      * @var \DateTime
@@ -150,6 +151,26 @@ abstract class OAuthClientAbstract extends DataModelAbstract
     public function setAllowedIps($allowedIps)
     {
         $this->allowedIps = $allowedIps;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlockchainAccounts()
+    {
+        return $this->blockchainAccounts;
+    }
+
+    /**
+     * @param mixed $blockchainAccounts
+     *
+     * @return $this
+     */
+    public function setBlockchainAccounts($blockchainAccounts)
+    {
+        $this->blockchainAccounts = $blockchainAccounts;
 
         return $this;
     }
