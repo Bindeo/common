@@ -10,6 +10,8 @@ abstract class BulkTypeAbstract extends DataModelAbstract
     protected $elementsType;
     protected $bulkInfo;
     protected $defaultInfo;
+    protected $callbackType;
+    protected $callbackValue;
 
     /**
      * @return mixed
@@ -131,6 +133,46 @@ abstract class BulkTypeAbstract extends DataModelAbstract
     public function setDefaultInfo($defaultInfo)
     {
         $this->defaultInfo = $defaultInfo;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCallbackType()
+    {
+        return $this->callbackType;
+    }
+
+    /**
+     * @param mixed $callbackType
+     *
+     * @return $this
+     */
+    public function setCallbackType($callbackType)
+    {
+        $this->callbackType = $callbackType;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCallbackValue()
+    {
+        return $this->callbackValue;
+    }
+
+    /**
+     * @param mixed $callbackValue
+     *
+     * @return $this
+     */
+    public function setCallbackValue($callbackValue)
+    {
+        $this->callbackValue = $callbackValue;
 
         return $this;
     }
