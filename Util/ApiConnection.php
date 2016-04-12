@@ -58,9 +58,12 @@ class ApiConnection
             'blockchain_coins'      => '/data/blockchain/coins',
             'blockchain_info'       => '/data/blockchain/info',
             'blockchain_test'       => '/data/blockchain/test',
+            'advanced_blockchain'   => '/advanced/blockchain',
             'bulk_transaction'      => '/bulk',
+            'bulk_item'             => '/bulk/item',
             'bulk_verify'           => '/bulk/verify',
-            'advanced_blockchain'    => '/advanced/blockchain'
+            'bulk_type'             => '/bulk/type',
+            'bulk_types'            => '/bulk/types'
         ];
     }
 
