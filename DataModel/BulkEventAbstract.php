@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class BulkEventAbstract extends DataModelAbstract
+abstract class BulkEventAbstract extends DataModelAbstract implements BulkItemInterface
 {
     protected $idBulkEvent;
     protected $idBulk;
@@ -18,6 +18,7 @@ abstract class BulkEventAbstract extends DataModelAbstract
     // Optionals
     protected $ip;
     protected $transaction;
+    protected $bulkExternalId;
 
     /**
      * @return mixed
@@ -214,6 +215,26 @@ abstract class BulkEventAbstract extends DataModelAbstract
     public function setTransaction($transaction)
     {
         $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBulkExternalId()
+    {
+        return $this->bulkExternalId;
+    }
+
+    /**
+     * @param mixed $bulkExternalId
+     *
+     * @return $this
+     */
+    public function setBulkExternalId($bulkExternalId)
+    {
+        $this->bulkExternalId = $bulkExternalId;
 
         return $this;
     }

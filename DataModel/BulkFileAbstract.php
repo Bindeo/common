@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class BulkFileAbstract extends DataModelAbstract implements StorableFileInterface
+abstract class BulkFileAbstract extends DataModelAbstract implements StorableFileInterface, BulkItemInterface
 {
     protected $idBulkFile;
     protected $idBulk;
@@ -32,6 +32,7 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
     protected $ip;
     protected $path;
     protected $transaction;
+    protected $bulkExternalId;
 
     public function getStorageType()
     {
@@ -472,6 +473,26 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
     public function setTransaction($transaction)
     {
         $this->transaction = $transaction;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBulkExternalId()
+    {
+        return $this->bulkExternalId;
+    }
+
+    /**
+     * @param mixed $bulkExternalId
+     *
+     * @return $this
+     */
+    public function setBulkExternalId($bulkExternalId)
+    {
+        $this->bulkExternalId = $bulkExternalId;
 
         return $this;
     }
