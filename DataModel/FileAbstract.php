@@ -349,4 +349,19 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     {
         return 'base';
     }
+
+    /**
+     * Standard files are uploaded only by users
+     *
+     * @return string
+     */
+    public function getClientType()
+    {
+        return 'U';
+    }
+    
+    public function getIdClient()
+    {
+        return $this->idUser;
+    }
 }

@@ -8,7 +8,9 @@ namespace Bindeo\DataModel;
  */
 interface StorableFileInterface
 {
-    public function getIdUser();
+    public function getClientType();
+    
+    public function getIdClient();
 
     public function getFileOrigName();
 

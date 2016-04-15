@@ -238,4 +238,12 @@ abstract class BulkEventAbstract extends DataModelAbstract implements BulkItemIn
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getStructure()
+    {
+        // TODO: Implement getStructure() method.
+    }
 }

@@ -496,4 +496,12 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getStructure()
+    {
+        // TODO: Implement getStructure() method.
+    }
 }
