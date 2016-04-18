@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class UserAbstract extends LocatableAbstract
+abstract class UserAbstract extends LocatableAbstract implements SpendingStorageInterface
 {
     protected $idUser;
     protected $email;

@@ -2,11 +2,12 @@
 
 namespace Bindeo\DataModel;
 
-abstract class FileAbstract extends LocatableAbstract implements StorableFileInterface
+abstract class FileAbstract extends LocatableAbstract implements StorableFileInterface, SignableInterface
 {
     protected $idFile;
-    protected $idUser;
-    protected $idType;
+    protected $clientType;
+    protected $idClient;
+    protected $mode;
     protected $idMedia;
     protected $name;
     protected $fileName;
@@ -22,6 +23,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $transaction;
     protected $confirmed;
     protected $path;
+    protected $signers;
 
     /**
      * @return mixed
@@ -46,19 +48,19 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getClientType()
     {
-        return $this->idUser;
+        return $this->clientType;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $clientType
      *
      * @return $this
      */
-    public function setIdUser($idUser)
+    public function setClientType($clientType)
     {
-        $this->idUser = $idUser;
+        $this->clientType = $clientType;
 
         return $this;
     }
@@ -66,19 +68,39 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     /**
      * @return mixed
      */
-    public function getIdType()
+    public function getIdClient()
     {
-        return $this->idType;
+        return $this->idClient;
     }
 
     /**
-     * @param mixed $idType
+     * @param mixed $idClient
      *
      * @return $this
      */
-    public function setIdType($idType)
+    public function setIdClient($idClient)
     {
-        $this->idType = $idType;
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param mixed $mode
+     *
+     * @return $this
+     */
+    public function setMode($mode)
+    {
+        $this->mode = $mode;
 
         return $this;
     }
@@ -345,23 +367,45 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
         return $this;
     }
 
+    /**
+     * @return array
+     */
+    public function getSigners()
+    {
+        return $this->signers;
+    }
+
+    /**
+     * @param mixed $signers
+     *
+     * @return $this
+     */
+    public function setSigners($signers)
+    {
+        $this->signers = $signers;
+
+        return $this;
+    }
+
     public function getStorageType()
     {
         return 'base';
     }
 
     /**
-     * Standard files are uploaded only by users
-     *
      * @return string
      */
-    public function getClientType()
+    public function getElementType()
     {
-        return 'U';
+        return 'F';
     }
-    
-    public function getIdClient()
+
+    /**
+     * @return int
+     */
+    public function getElementId()
     {
-        return $this->idUser;
+        return $this->idFile;
     }
+
 }

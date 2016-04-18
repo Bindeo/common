@@ -2,13 +2,15 @@
 
 namespace Bindeo\DataModel;
 
-abstract class OAuthClientAbstract extends DataModelAbstract
+abstract class OAuthClientAbstract extends DataModelAbstract implements SpendingStorageInterface
 {
     protected $idClient;
     protected $name;
     protected $secret;
     protected $role;
     protected $allowedIps;
+    protected $storageLeft;
+    protected $stampsLeft;
     protected $blockchainAccounts;
 
     /**
@@ -158,6 +160,46 @@ abstract class OAuthClientAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
+    public function getStorageLeft()
+    {
+        return $this->storageLeft;
+    }
+
+    /**
+     * @param mixed $storageLeft
+     *
+     * @return $this
+     */
+    public function setStorageLeft($storageLeft)
+    {
+        $this->storageLeft = $storageLeft;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStampsLeft()
+    {
+        return $this->stampsLeft;
+    }
+
+    /**
+     * @param mixed $stampsLeft
+     *
+     * @return $this
+     */
+    public function setStampsLeft($stampsLeft)
+    {
+        $this->stampsLeft = $stampsLeft;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getBlockchainAccounts()
     {
         return $this->blockchainAccounts;
@@ -173,5 +215,13 @@ abstract class OAuthClientAbstract extends DataModelAbstract
         $this->blockchainAccounts = $blockchainAccounts;
 
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return 2;
     }
 }

@@ -44,7 +44,6 @@ class ApiConnection
             'oauth_clients'         => '/oauth/clients',
             'oauth_token'           => '/oauth/token',
             'general_account_types' => '/general/account-types',
-            'general_file_types'    => '/general/file-types',
             'general_media_types'   => '/general/media-types',
             'users'                 => '/users',
             'account'               => '/account',

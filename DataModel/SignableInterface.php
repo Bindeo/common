@@ -8,15 +8,23 @@ namespace Bindeo\DataModel;
  */
 interface SignableInterface
 {
-    public function getHash();
+    /**
+     * @return string
+     */
+    public function getElementType();
 
-    public function getFileOrigName();
+    /**
+     * @return int
+     */
+    public function getElementId();
 
-    public function getSize();
+    /**
+     * @return array
+     */
+    public function getSigners();
 
-    public function getType();
-
-    public function getIdElement();
-
-    public function getIdUser();
+    /**
+     * @return string
+     */
+    public function getIp();
 }

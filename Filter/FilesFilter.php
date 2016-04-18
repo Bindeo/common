@@ -4,11 +4,11 @@ namespace Bindeo\Filter;
 
 class FilesFilter extends FilterAbstract
 {
-    protected $idUser;
+    protected $clientType;
+    protected $idClient;
     protected $name;
     protected $specialFilter;
     protected $status;
-    protected $fileType;
     protected $mediaType;
     protected $order;
 
@@ -33,8 +33,12 @@ class FilesFilter extends FilterAbstract
     {
         parent::__construct($request);
 
-        if (isset($request['idUser'])) {
-            $this->idUser = $request['idUser'];
+        if (isset($request['clientType'])) {
+            $this->clientType = $request['clientType'];
+        }
+
+        if (isset($request['idClient'])) {
+            $this->idClient = $request['idClient'];
         }
 
         if (isset($request['name'])) {
@@ -51,10 +55,6 @@ class FilesFilter extends FilterAbstract
             $this->status = 'A';
         }
 
-        if (isset($request['fileType'])) {
-            $this->fileType = $request['fileType'];
-        }
-
         if (isset($request['mediaType'])) {
             $this->mediaType = $request['mediaType'];
         }
@@ -69,19 +69,39 @@ class FilesFilter extends FilterAbstract
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getClientType()
     {
-        return $this->idUser;
+        return $this->clientType;
     }
 
     /**
-     * @param mixed $idUser
+     * @param mixed $clientType
      *
      * @return $this
      */
-    public function setIdUser($idUser)
+    public function setClientType($clientType)
     {
-        $this->idUser = $idUser;
+        $this->clientType = $clientType;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * @param mixed $idClient
+     *
+     * @return $this
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
 
         return $this;
     }
@@ -142,26 +162,6 @@ class FilesFilter extends FilterAbstract
     public function setStatus($status)
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFileType()
-    {
-        return $this->fileType;
-    }
-
-    /**
-     * @param mixed $fileType
-     *
-     * @return $this
-     */
-    public function setFileType($fileType)
-    {
-        $this->fileType = $fileType;
 
         return $this;
     }
