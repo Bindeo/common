@@ -20,6 +20,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     // Optionals
     protected $tag;
     protected $description;
+    protected $idBulk;
     protected $transaction;
     protected $confirmed;
     protected $path;
@@ -208,6 +209,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
+     * Get size in KB
      * @return mixed
      */
     public function getSize()
@@ -303,6 +305,26 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdBulk()
+    {
+        return $this->idBulk;
+    }
+
+    /**
+     * @param mixed $idBulk
+     *
+     * @return $this
+     */
+    public function setIdBulk($idBulk)
+    {
+        $this->idBulk = $idBulk;
 
         return $this;
     }

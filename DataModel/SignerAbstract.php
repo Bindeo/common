@@ -2,10 +2,11 @@
 
 namespace Bindeo\DataModel;
 
-abstract class SignatureAbstract extends LocatableAbstract
+abstract class SignerAbstract extends LocatableAbstract
 {
     protected $elementType;
     protected $elementId;
+    protected $creator;
     protected $email;
     protected $phone;
     protected $name;
@@ -52,6 +53,26 @@ abstract class SignatureAbstract extends LocatableAbstract
     public function setElementId($elementId)
     {
         $this->elementId = $elementId;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param mixed $creator
+     *
+     * @return $this
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
 
         return $this;
     }

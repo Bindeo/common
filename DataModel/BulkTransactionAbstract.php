@@ -15,6 +15,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $structure;
     protected $hash;
     protected $status;
+    protected $account;
 
     // Optionals
     protected $transaction;
@@ -197,7 +198,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     }
 
     /**
-     * @param bool $decoded[optional]
+     * @param bool $decoded [optional]
      *
      * @return mixed
      */
@@ -254,6 +255,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setStatus($status)
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+
+    /**
+     * @param mixed $account
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->account = $account;
 
         return $this;
     }
