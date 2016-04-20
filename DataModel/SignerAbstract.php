@@ -16,6 +16,7 @@ abstract class SignerAbstract extends LocatableAbstract
      * @var \DateTime
      */
     protected $tokenExpiration;
+    protected $viewed;
     protected $signed;
 
     // Optionals
@@ -203,6 +204,26 @@ abstract class SignerAbstract extends LocatableAbstract
         } else {
             $this->tokenExpiration = \DateTime::createFromFormat($mask, $tokenExpiration);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getViewed()
+    {
+        return $this->viewed;
+    }
+
+    /**
+     * @param mixed $viewed
+     *
+     * @return $this
+     */
+    public function setViewed($viewed)
+    {
+        $this->viewed = $viewed;
 
         return $this;
     }

@@ -19,7 +19,19 @@ interface SignableInterface
     public function getElementId();
 
     /**
-     * @return array
+     * @return string
+     */
+    public function getElementName();
+
+    /**
+     * @param SignerAbstract[] $signers
+     *
+     * @return $this
+     */
+    public function setSigners($signers);
+
+    /**
+     * @return SignerAbstract[]
      */
     public function getSigners();
 
@@ -27,4 +39,30 @@ interface SignableInterface
      * @return string
      */
     public function getIp();
+
+    /**
+     * @return int
+     */
+    public function getIdBulk();
+
+    /**
+     * @return array
+     */
+    public function toArray();
+
+    /**
+     * Store current signer in json format
+     *
+     * @param string $json
+     *
+     * @return $this
+     */
+    public function setSignerJson($json);
+
+    /**
+     * Get the params array for the current signer
+     *
+     * @return array
+     */
+    public function getSignerJson();
 }

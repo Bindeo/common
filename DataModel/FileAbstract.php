@@ -25,6 +25,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $confirmed;
     protected $path;
     protected $signers;
+    protected $signerJson;
 
     /**
      * @return mixed
@@ -390,7 +391,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
-     * @return array
+     * @return SignerAbstract[]
      */
     public function getSigners()
     {
@@ -398,7 +399,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
-     * @param mixed $signers
+     * @param SignerAbstract[] $signers
      *
      * @return $this
      */
@@ -430,4 +431,39 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
         return $this->idFile;
     }
 
+    /**
+     * @return string
+     */
+    public function getElementName()
+    {
+        return $this->fileOrigName;
+    }
+
+    /**
+     * Store current signer in json format
+     *
+     * @param string $json
+     *
+     * @return $this
+     */
+    public function setSignerJson($json)
+    {
+        $this->signerJson = $json;
+
+        return $this;
+    }
+
+    /**
+     * Get the params array for the current signer
+     *
+     * @return array
+     */
+    public function getSignerJson()
+    {
+        if ($this->signerJson and ($signer = json_decode($this->signerJson, true))) {
+            return $signer;
+        } else {
+            return [];
+        }
+    }
 }
