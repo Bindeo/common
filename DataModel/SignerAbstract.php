@@ -11,6 +11,11 @@ abstract class SignerAbstract extends LocatableAbstract
     protected $phone;
     protected $name;
     protected $account;
+    protected $token;
+    /**
+     * @var \DateTime
+     */
+    protected $tokenExpiration;
     protected $signed;
 
     // Optionals
@@ -153,6 +158,51 @@ abstract class SignerAbstract extends LocatableAbstract
     public function setAccount($account)
     {
         $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     *
+     * @return $this
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTokenExpiration()
+    {
+        return $this->tokenExpiration;
+    }
+
+    /**
+     * @param mixed  $tokenExpiration
+     * @param string $mask [optional]
+     *
+     * @return $this
+     */
+    public function setTokenExpiration($tokenExpiration, $mask = self::DATE_MASK)
+    {
+        if ($tokenExpiration instanceof \DateTime) {
+            $this->tokenExpiration = $tokenExpiration;
+        } else {
+            $this->tokenExpiration = \DateTime::createFromFormat($mask, $tokenExpiration);
+        }
 
         return $this;
     }

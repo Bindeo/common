@@ -411,7 +411,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
 
     public function getStorageType()
     {
-        return 'base';
+        return $this->mode == 'S' ? 'sign' : 'base';
     }
 
     /**

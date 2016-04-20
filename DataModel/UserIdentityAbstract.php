@@ -10,6 +10,7 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     protected $type;
     protected $name;
     protected $value;
+    protected $account;
     protected $confirmed;
     protected $status;
     protected $ip;
@@ -130,6 +131,26 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     public function setValue($value)
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+
+    /**
+     * @param mixed $account
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->account = $account;
 
         return $this;
     }

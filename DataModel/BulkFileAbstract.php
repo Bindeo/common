@@ -263,7 +263,7 @@ abstract class BulkFileAbstract extends DataModelAbstract implements StorableFil
 
     /**
      * @param mixed  $fileDate
-     * @param string $mask
+     * @param string $mask [optional]
      *
      * @return $this
      */
