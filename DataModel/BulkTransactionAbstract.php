@@ -18,6 +18,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $account;
 
     // Optionals
+    protected $linkedTransaction;
     protected $transaction;
     protected $confirmed;
     protected $files;
@@ -275,6 +276,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setAccount($account)
     {
         $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkedTransaction()
+    {
+        return $this->linkedTransaction;
+    }
+
+    /**
+     * @param mixed $linkedTransaction
+     *
+     * @return $this
+     */
+    public function setLinkedTransaction($linkedTransaction)
+    {
+        $this->linkedTransaction = $linkedTransaction;
 
         return $this;
     }

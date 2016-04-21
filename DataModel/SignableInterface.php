@@ -36,6 +36,11 @@ interface SignableInterface
     public function getSigners();
 
     /**
+     * @return int
+     */
+    public function getPendingSigners();
+
+    /**
      * @return string
      */
     public function getIp();
@@ -65,4 +70,11 @@ interface SignableInterface
      * @return array
      */
     public function getSignerJson();
+
+    /**
+     * Get blockchain transaction
+     *
+     * @return string
+     */
+    public function getTransaction();
 }

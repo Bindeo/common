@@ -10,6 +10,7 @@ class Exceptions
     // Database
     const MISSING_FIELDS     = 'Missing fields'; // 400
     const INCORRECT_PASSWORD = 'Incorrect password'; // 403
+    const FEW_PRIVILEGES     = 'You need more privileges'; // 403
     const EXPIRED_TOKEN      = 'Expired token'; // 403
     const DUPLICATED_KEY     = 'Duplicated key'; // 409
     const NON_EXISTENT       = 'Element does not exist'; // 409

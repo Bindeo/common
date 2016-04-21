@@ -7,6 +7,7 @@ abstract class BulkTypeAbstract extends DataModelAbstract
     protected $clientType;
     protected $idClient;
     protected $type;
+    protected $asset;
     protected $elementsType;
     protected $bulkInfo;
     protected $defaultInfo;
@@ -69,6 +70,26 @@ abstract class BulkTypeAbstract extends DataModelAbstract
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAsset()
+    {
+        return $this->asset;
+    }
+
+    /**
+     * @param mixed $asset
+     *
+     * @return $this
+     */
+    public function setAsset($asset)
+    {
+        $this->asset = $asset;
 
         return $this;
     }

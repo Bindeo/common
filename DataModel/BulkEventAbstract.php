@@ -16,6 +16,10 @@ abstract class BulkEventAbstract extends DataModelAbstract implements BulkItemIn
     protected $data;
 
     // Optionals
+    /**
+     * @var \DateTime
+     */
+    protected $date;
     protected $ip;
     protected $transaction;
     protected $bulkExternalId;
@@ -175,6 +179,45 @@ abstract class BulkEventAbstract extends DataModelAbstract implements BulkItemIn
     public function setData($data)
     {
         $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param string $mask
+     *
+     * @return mixed
+     */
+    public function getFormattedDate($mask = self::DATETIME_MASK)
+    {
+        if ($this->date) {
+            return $this->date->format($mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $date
+     * @param string $mask
+     *
+     * @return $this
+     */
+    public function setDate($date, $mask = self::DATETIME_MASK)
+    {
+        if ($date instanceof \DateTime) {
+            $this->date = $date;
+        } else {
+            $this->date = \DateTime::createFromFormat($mask, $date);
+        }
 
         return $this;
     }

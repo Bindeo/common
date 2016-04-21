@@ -25,6 +25,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $confirmed;
     protected $path;
     protected $signers;
+    protected $pendingSigners;
     protected $signerJson;
 
     /**
@@ -454,8 +455,27 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
-     * Get the params array for the current signer
+     * @return mixed
+     */
+    public function getPendingSigners()
+    {
+        return $this->pendingSigners;
+    }
+
+    /**
+     * @param mixed $pendingSigners
      *
+     * @return $this
+     */
+    public function setPendingSigners($pendingSigners)
+    {
+        $this->pendingSigners = $pendingSigners;
+
+        return $this;
+    }
+
+    /**
+     * Get the params array for the current signer
      * @return array
      */
     public function getSignerJson()
