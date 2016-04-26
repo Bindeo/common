@@ -10,6 +10,7 @@ abstract class SignerAbstract extends LocatableAbstract
     protected $email;
     protected $phone;
     protected $name;
+    protected $document;
     protected $account;
     protected $token;
     /**
@@ -144,6 +145,26 @@ abstract class SignerAbstract extends LocatableAbstract
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param mixed $document
+     *
+     * @return $this
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
 
         return $this;
     }
