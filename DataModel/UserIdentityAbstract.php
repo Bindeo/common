@@ -10,6 +10,7 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     protected $type;
     protected $name;
     protected $value;
+    protected $document;
     protected $account;
     protected $confirmed;
     protected $status;
@@ -138,6 +139,26 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     /**
      * @return mixed
      */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param mixed $document
+     *
+     * @return $this
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getAccount()
     {
         return $this->account;
@@ -222,5 +243,20 @@ abstract class UserIdentityAbstract extends DataModelAbstract
     public function getFullName()
     {
         return $this->name . ' (' . $this->value . ')';
+    }
+
+    /**
+     * Clean dangerous attributes
+     * @return $this
+     */
+    public function clean()
+    {
+        parent::clean();
+
+        if ($this->value) {
+            mb_strtolower($this->value);
+        }
+
+        return $this;
     }
 }

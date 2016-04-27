@@ -6,6 +6,7 @@ abstract class UserAbstract extends LocatableAbstract implements SpendingStorage
 {
     protected $idUser;
     protected $email;
+    protected $phone;
     protected $type;
     protected $name;
     protected $confirmed;
@@ -52,6 +53,26 @@ abstract class UserAbstract extends LocatableAbstract implements SpendingStorage
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
 
         return $this;
     }

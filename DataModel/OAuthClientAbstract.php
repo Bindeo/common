@@ -8,6 +8,7 @@ abstract class OAuthClientAbstract extends DataModelAbstract implements Spending
     protected $name;
     protected $secret;
     protected $role;
+    protected $email;
     protected $allowedIps;
     protected $storageLeft;
     protected $stampsLeft;
@@ -94,6 +95,26 @@ abstract class OAuthClientAbstract extends DataModelAbstract implements Spending
     public function setRole($role)
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
         return $this;
     }

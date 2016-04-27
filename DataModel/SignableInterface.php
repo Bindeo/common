@@ -24,6 +24,16 @@ interface SignableInterface
     public function getElementName();
 
     /**
+     * @return string
+     */
+    public function getClientType();
+
+    /**
+     * @return int
+     */
+    public function getIdClient();
+
+    /**
      * @param SignerAbstract[] $signers
      *
      * @return $this
