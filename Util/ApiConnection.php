@@ -62,7 +62,10 @@ class ApiConnection
             'bulk_item'             => '/bulk/item',
             'bulk_verify'           => '/bulk/verify',
             'bulk_type'             => '/bulk/type',
-            'bulk_types'            => '/bulk/types'
+            'bulk_types'            => '/bulk/types',
+            'signature'             => '/signature',
+            'signature_code'        => '/signature/code',
+            'signature_signer'      => '/signature/signer'
         ];
     }
 

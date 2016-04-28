@@ -27,6 +27,8 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $signers;
     protected $pendingSigners;
     protected $signerJson;
+    protected $pages;
+    protected $pagesPreviews;
 
     /**
      * @return mixed
@@ -485,5 +487,71 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
         } else {
             return [];
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     *
+     * @return $this
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPagesPreviews()
+    {
+        return $this->pagesPreviews;
+    }
+
+    /**
+     * @param mixed $pagesPreviews
+     *
+     * @return $this
+     */
+    public function setPagesPreviews($pagesPreviews)
+    {
+        $this->pagesPreviews = $pagesPreviews;
+
+        return $this;
+    }
+
+    /**
+     * Encode into JSON the pages previews array
+     * @return $this
+     */
+    public function encodePages()
+    {
+        if ($this->pagesPreviews) {
+            $this->pagesPreviews = json_encode($this->pagesPreviews);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Decode into array the pages previews in JSON
+     * @return $this
+     */
+    public function decodePages()
+    {
+        if ($this->pagesPreviews) {
+            $this->pagesPreviews = json_decode($this->pagesPreviews);
+        }
+
+        return $this;
     }
 }
