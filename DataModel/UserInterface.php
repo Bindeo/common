@@ -30,6 +30,11 @@ interface UserInterface
     public function getLang();
 
     /**
+     * @return string
+     */
+    public function getDocument();
+
+    /**
      * @return array
      */
     public function toArray();

@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class UserAbstract extends LocatableAbstract implements SpendingStorageInterface
+abstract class UserAbstract extends LocatableAbstract implements SpendingStorageInterface, UserInterface
 {
     protected $idUser;
     protected $email;
@@ -251,5 +251,21 @@ abstract class UserAbstract extends LocatableAbstract implements SpendingStorage
         }
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserType()
+    {
+        return 'U';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocument()
+    {
+        return null;
     }
 }

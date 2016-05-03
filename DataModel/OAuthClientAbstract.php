@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class OAuthClientAbstract extends DataModelAbstract implements SpendingStorageInterface
+abstract class OAuthClientAbstract extends DataModelAbstract implements SpendingStorageInterface, UserInterface
 {
     protected $idClient;
     protected $name;
@@ -244,5 +244,37 @@ abstract class OAuthClientAbstract extends DataModelAbstract implements Spending
     public function getType()
     {
         return 2;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserType()
+    {
+        return 'C';
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLang()
+    {
+        return 'en_US';
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocument()
+    {
+        return null;
     }
 }

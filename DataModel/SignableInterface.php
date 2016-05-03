@@ -56,6 +56,13 @@ interface SignableInterface
     public function getIp();
 
     /**
+     * @param int $idBulk
+     *
+     * @return $this
+     */
+    public function setIdBulk($idBulk);
+
+    /**
      * @return int
      */
     public function getIdBulk();
@@ -76,14 +83,12 @@ interface SignableInterface
 
     /**
      * Get the params array for the current signer
-     *
      * @return array
      */
     public function getSignerJson();
 
     /**
      * Get blockchain transaction
-     *
      * @return string
      */
     public function getTransaction();

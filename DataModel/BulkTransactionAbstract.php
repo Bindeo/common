@@ -18,6 +18,10 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $account;
 
     // Optionals
+    /**
+     * @var \DateTime
+     */
+    protected $date;
     protected $linkedTransaction;
     protected $transaction;
     protected $confirmed;
@@ -276,6 +280,45 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setAccount($account)
     {
         $this->account = $account;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param string $mask
+     *
+     * @return mixed
+     */
+    public function getFormattedDate($mask = self::DATETIME_MASK)
+    {
+        if ($this->date) {
+            return $this->date->format($mask == 'DATE_ATOM' ? \DateTime::ATOM : $mask);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param mixed  $date
+     * @param string $mask
+     *
+     * @return $this
+     */
+    public function setDate($date, $mask = self::DATETIME_MASK)
+    {
+        if ($date instanceof \DateTime) {
+            $this->date = $date;
+        } else {
+            $this->date = \DateTime::createFromFormat($mask, $date);
+        }
 
         return $this;
     }

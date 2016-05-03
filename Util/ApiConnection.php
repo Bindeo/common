@@ -65,7 +65,8 @@ class ApiConnection
             'bulk_types'            => '/bulk/types',
             'signature'             => '/signature',
             'signature_code'        => '/signature/code',
-            'signature_signer'      => '/signature/signer'
+            'signature_signer'      => '/signature/signer',
+            'signature_certificate' => '/signature/certificate'
         ];
     }
 

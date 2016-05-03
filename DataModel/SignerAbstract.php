@@ -290,7 +290,7 @@ abstract class SignerAbstract extends LocatableAbstract
     public function getFormattedDate($mask = self::DATETIME_MASK)
     {
         if ($this->date) {
-            return $this->date->format($mask);
+            return $this->date->format($mask == 'DATE_ATOM' ? \DateTime::ATOM : $mask);
         } else {
             return null;
         }

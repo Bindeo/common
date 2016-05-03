@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class UserIdentityAbstract extends DataModelAbstract
+abstract class UserIdentityAbstract extends DataModelAbstract implements UserInterface
 {
     protected $idIdentity;
     protected $idUser;
@@ -258,5 +258,30 @@ abstract class UserIdentityAbstract extends DataModelAbstract
         }
 
         return $this;
+    }
+
+    // UserInterface
+    /**
+     * @return string
+     */
+    public function getUserType()
+    {
+        return 'U';
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLang()
+    {
+        return 'en_US';
     }
 }
