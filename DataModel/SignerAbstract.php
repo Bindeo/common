@@ -4,8 +4,7 @@ namespace Bindeo\DataModel;
 
 abstract class SignerAbstract extends LocatableAbstract
 {
-    protected $elementType;
-    protected $elementId;
+    protected $idBulk;
     protected $creator;
     protected $email;
     protected $phone;
@@ -32,39 +31,19 @@ abstract class SignerAbstract extends LocatableAbstract
     /**
      * @return mixed
      */
-    public function getElementType()
+    public function getIdBulk()
     {
-        return $this->elementType;
+        return $this->idBulk;
     }
 
     /**
-     * @param mixed $elementType
+     * @param mixed $idBulk
      *
      * @return $this
      */
-    public function setElementType($elementType)
+    public function setIdBulk($idBulk)
     {
-        $this->elementType = $elementType;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getElementId()
-    {
-        return $this->elementId;
-    }
-
-    /**
-     * @param mixed $elementId
-     *
-     * @return $this
-     */
-    public function setElementId($elementId)
-    {
-        $this->elementId = $elementId;
+        $this->idBulk = $idBulk;
 
         return $this;
     }

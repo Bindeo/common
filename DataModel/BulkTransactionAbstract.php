@@ -27,6 +27,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $confirmed;
     protected $files;
     protected $events;
+    protected $signers;
 
     /**
      * @return mixed
@@ -384,7 +385,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     }
 
     /**
-     * @return array
+     * @return FileAbstract[]
      */
     public function getFiles()
     {
@@ -419,6 +420,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setEvents($events)
     {
         $this->events = $events;
+
+        return $this;
+    }
+
+    /**
+     * @return SignerAbstract[]
+     */
+    public function getSigners()
+    {
+        return $this->signers;
+    }
+
+    /**
+     * @param mixed $signers
+     *
+     * @return $this
+     */
+    public function setSigners($signers)
+    {
+        $this->signers = $signers;
 
         return $this;
     }
