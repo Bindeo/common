@@ -46,11 +46,6 @@ interface SignableInterface
     public function getSigners();
 
     /**
-     * @return int
-     */
-    public function getPendingSigners();
-
-    /**
      * @return string
      */
     public function getIp();

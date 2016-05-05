@@ -14,6 +14,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $fileOrigName;
     protected $hash;
     protected $size;
+    protected $pages;
     protected $date;
     protected $status;
 
@@ -25,9 +26,7 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     protected $confirmed;
     protected $path;
     protected $signers;
-    protected $pendingSigners;
     protected $signerJson;
-    protected $pages;
     protected $pagesPreviews;
 
     /**
@@ -229,6 +228,26 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     public function setSize($size)
     {
         $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     *
+     * @return $this
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
 
         return $this;
     }
@@ -457,26 +476,6 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
-     * @return mixed
-     */
-    public function getPendingSigners()
-    {
-        return $this->pendingSigners;
-    }
-
-    /**
-     * @param mixed $pendingSigners
-     *
-     * @return $this
-     */
-    public function setPendingSigners($pendingSigners)
-    {
-        $this->pendingSigners = $pendingSigners;
-
-        return $this;
-    }
-
-    /**
      * Get the params array for the current signer
      * @return array
      */
@@ -487,26 +486,6 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
         } else {
             return [];
         }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPages()
-    {
-        return $this->pages;
-    }
-
-    /**
-     * @param mixed $pages
-     *
-     * @return $this
-     */
-    public function setPages($pages)
-    {
-        $this->pages = $pages;
-
-        return $this;
     }
 
     /**

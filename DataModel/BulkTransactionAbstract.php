@@ -28,6 +28,7 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     protected $files;
     protected $events;
     protected $signers;
+    protected $pendingSigners;
 
     /**
      * @return mixed
@@ -440,6 +441,26 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
     public function setSigners($signers)
     {
         $this->signers = $signers;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPendingSigners()
+    {
+        return $this->pendingSigners;
+    }
+
+    /**
+     * @param mixed $pendingSigners
+     *
+     * @return $this
+     */
+    public function setPendingSigners($pendingSigners)
+    {
+        $this->pendingSigners = $pendingSigners;
 
         return $this;
     }
