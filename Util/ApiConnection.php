@@ -80,8 +80,7 @@ class ApiConnection
      */
     public function getJson($url, $params = [])
     {
-        $res = $this->curl->get($this->baseUrl . $this->getRoute($url), $params);
-        return $this->processResult($res);
+        return $this->processResult($this->curl->get($this->baseUrl . $this->getRoute($url), $params));
     }
 
     /**
