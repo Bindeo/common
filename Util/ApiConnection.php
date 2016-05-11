@@ -45,6 +45,7 @@ class ApiConnection
             'oauth_token'           => '/oauth/token',
             'general_account_types' => '/general/account-types',
             'general_media_types'   => '/general/media-types',
+            'general_geolocalize'   => '/general/geolocalize',
             'users'                 => '/users',
             'account'               => '/account',
             'account_password'      => '/account/password',
@@ -66,7 +67,8 @@ class ApiConnection
             'signature'             => '/signature',
             'signature_code'        => '/signature/code',
             'signature_signer'      => '/signature/signer',
-            'signature_certificate' => '/signature/certificate'
+            'signature_certificate' => '/signature/certificate',
+            'validate_phone'        => '/general/validate/phone'
         ];
     }
 
