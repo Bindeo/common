@@ -20,13 +20,13 @@ abstract class SignerAbstract extends LocatableAbstract
     protected $signed;
 
     // Optionals
-
     /**
      * @var \DateTime
      */
     protected $date;
     protected $idUser;
     protected $idIdentity;
+    protected $method;
 
     /**
      * @return mixed
@@ -328,6 +328,26 @@ abstract class SignerAbstract extends LocatableAbstract
     public function setIdIdentity($idIdentity)
     {
         $this->idIdentity = $idIdentity;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    /**
+     * @param mixed $method
+     *
+     * @return $this
+     */
+    public function setMethod($method)
+    {
+        $this->method = $method;
 
         return $this;
     }
