@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class SignerAbstract extends LocatableAbstract
+abstract class SignerAbstract extends LocatableAbstract implements ClientsInterface
 {
     protected $idBulk;
     protected $creator;
@@ -350,6 +350,22 @@ abstract class SignerAbstract extends LocatableAbstract
         $this->method = $method;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientType()
+    {
+        return 'U';
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdClient()
+    {
+        return $this->idUser;
     }
 
     // AUX METHODS

@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class FileAbstract extends LocatableAbstract implements StorableFileInterface, SignableInterface
+abstract class FileAbstract extends LocatableAbstract implements StorableFileInterface, SignableInterface, ProcessInterface
 {
     protected $idFile;
     protected $clientType;
@@ -532,5 +532,13 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
         }
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProcessType()
+    {
+        return 'N';
     }
 }

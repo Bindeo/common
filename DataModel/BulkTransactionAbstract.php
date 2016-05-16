@@ -2,7 +2,7 @@
 
 namespace Bindeo\DataModel;
 
-abstract class BulkTransactionAbstract extends LocatableAbstract
+abstract class BulkTransactionAbstract extends LocatableAbstract implements ProcessInterface
 {
     protected $idBulkTransaction;
     protected $externalId;
@@ -463,5 +463,35 @@ abstract class BulkTransactionAbstract extends LocatableAbstract
         $this->pendingSigners = $pendingSigners;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProcessType()
+    {
+        return 'S';
+    }
+
+    /**
+     * @return int
+     */
+    public function getElementId()
+    {
+        return $this->idBulkTransaction;
+    }
+
+    /**
+     * @return string
+     */
+    public function getElementName()
+    {
+        $name = '';
+
+        if ($this->type == 'Sign Document' and $this->files) {
+            $name = reset($this->files)->getElementName();
+        }
+
+        return $name;
     }
 }
