@@ -27,7 +27,11 @@ abstract class ClientResultSetAbstract extends ResultSetAbstract
 
                 foreach ($data->data as $row) {
                     list($key, $row) = $this->getObject($row);
-                    $this->rows[$key] = $row;
+                    if ($key) {
+                        $this->rows[$key] = $row;
+                    } else {
+                        $this->rows[] = $row;
+                    }
                 }
             } else {
                 // Single registry
