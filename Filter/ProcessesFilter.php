@@ -4,6 +4,7 @@ namespace Bindeo\Filter;
 
 class ProcessesFilter extends FilterAbstract
 {
+    protected $lang;
     protected $clientType;
     protected $idClient;
     protected $name;
@@ -20,6 +21,10 @@ class ProcessesFilter extends FilterAbstract
     public function __construct($request = [])
     {
         parent::__construct($request);
+
+        if (isset($request['lang'])) {
+            $this->lang = $request['lang'];
+        }
 
         if (isset($request['clientType'])) {
             $this->clientType = $request['clientType'];
@@ -43,6 +48,26 @@ class ProcessesFilter extends FilterAbstract
         } else {
             $this->order = self::ORDER_DATE_DESC;
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLang()
+    {
+        return $this->lang;
+    }
+
+    /**
+     * @param mixed $lang
+     *
+     * @return $this
+     */
+    public function setLang($lang)
+    {
+        $this->lang = $lang;
+
+        return $this;
     }
 
     /**

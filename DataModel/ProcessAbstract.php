@@ -30,6 +30,7 @@ abstract class ProcessAbstract extends DataModelAbstract
     // Optional
     protected $status;
     protected $clients;
+    protected $idAltElement;
 
     /**
      * @return mixed
@@ -197,7 +198,7 @@ abstract class ProcessAbstract extends DataModelAbstract
      */
     public function getAdditionalData($decoded = false)
     {
-        return $decoded and $this->additionalData ? json_decode($this->additionalData, true) : $this->additionalData;
+        return ($decoded and $this->additionalData) ? json_decode($this->additionalData, true) : $this->additionalData;
     }
 
     /**
@@ -248,6 +249,26 @@ abstract class ProcessAbstract extends DataModelAbstract
     public function setClients($clients)
     {
         $this->clients = $clients;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdAltElement()
+    {
+        return $this->idAltElement;
+    }
+
+    /**
+     * @param mixed $idAltElement
+     *
+     * @return $this
+     */
+    public function setIdAltElement($idAltElement)
+    {
+        $this->idAltElement = $idAltElement;
 
         return $this;
     }
