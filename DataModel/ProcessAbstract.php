@@ -291,7 +291,7 @@ abstract class ProcessAbstract extends DataModelAbstract
                     // $signer must be Signer type instance
                     $additionalData[$signer->getEmail()] = [
                         'name'   => $signer->getName(),
-                        'signed' => $signer->getSigned()
+                        'signed' => $signer->getSigned() ? '1' : '0'
                     ];
                 } else {
                     $this->additionalData = null;
