@@ -204,7 +204,7 @@ abstract class BlockChainAbstract extends DataModelAbstract
     public function getFormattedCtrlDate($mask = self::DATETIME_MASK)
     {
         if ($this->ctrlDate) {
-            return $this->ctrlDate->format($mask);
+            return $this->ctrlDate->format($mask == 'DATE_ATOM' ? \DateTime::ATOM : $mask);
         } else {
             return null;
         }

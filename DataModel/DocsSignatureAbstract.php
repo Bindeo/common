@@ -5,13 +5,14 @@ namespace Bindeo\DataModel;
 abstract class DocsSignatureAbstract extends DataModelAbstract
 {
     protected $bulk;
+    protected $blockchain;
     protected $files;
     protected $issuerType;
     protected $issuer;
     protected $signers;
 
     /**
-     * Bulk transaction external Id
+     * Bulk transaction
      * @return mixed
      */
     public function getBulk()
@@ -27,6 +28,26 @@ abstract class DocsSignatureAbstract extends DataModelAbstract
     public function setBulk($bulk)
     {
         $this->bulk = $bulk;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBlockchain()
+    {
+        return $this->blockchain;
+    }
+
+    /**
+     * @param mixed $blockchain
+     *
+     * @return $this
+     */
+    public function setBlockchain($blockchain)
+    {
+        $this->blockchain = $blockchain;
 
         return $this;
     }
