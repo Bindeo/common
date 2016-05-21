@@ -19,9 +19,11 @@ interface ProcessInterface
     public function getElementId();
 
     /**
+     * @param int $len
+     *
      * @return string
      */
-    public function getElementName();
+    public function getElementName($len = null);
 
     /**
      * @return string

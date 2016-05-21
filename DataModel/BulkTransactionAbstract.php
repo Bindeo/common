@@ -482,14 +482,16 @@ abstract class BulkTransactionAbstract extends LocatableAbstract implements Proc
     }
 
     /**
+     * @param int $len
+     *
      * @return string
      */
-    public function getElementName()
+    public function getElementName($len = null)
     {
         $name = '';
 
         if ($this->type == 'Sign Document' and $this->files) {
-            $name = reset($this->files)->getElementName();
+            $name = reset($this->files)->getElementName($len);
         }
 
         return $name;

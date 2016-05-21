@@ -170,11 +170,17 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
+     * @param int $len
+     *
      * @return mixed
      */
-    public function getFileOrigName()
+    public function getFileOrigName($len = null)
     {
-        return $this->fileOrigName;
+        if ($len and $len > 0 and $this->fileOrigName and $len < mb_strlen($this->fileOrigName)) {
+            return mb_substr($this->fileOrigName, 0, $len) . '...';
+        } else {
+            return $this->fileOrigName;
+        }
     }
 
     /**
@@ -454,11 +460,13 @@ abstract class FileAbstract extends LocatableAbstract implements StorableFileInt
     }
 
     /**
+     * @param int $len
+     *
      * @return string
      */
-    public function getElementName()
+    public function getElementName($len = null)
     {
-        return $this->fileOrigName;
+        return $this->getFileOrigName($len);
     }
 
     /**
