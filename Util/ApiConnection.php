@@ -36,9 +36,12 @@ class ApiConnection
     public function __construct($baseUrl, $token, $app)
     {
         $this->app = $app;
-        $this->baseUrl = $baseUrl;
+        $this->baseUrl = 'https://' . $baseUrl;
         $this->curl = new Curl();
         $this->curl->setHeader('Authorization', 'Bearer ' . $token);
+        $this->curl->setOpt(CURLOPT_SSL_VERIFYPEER, false);
+        $this->curl->setOpt(CURLOPT_SSL_VERIFYHOST, 0);
+        
         // Private api routes
         $this->routes = [
             'oauth_clients'            => '/oauth/clients',
